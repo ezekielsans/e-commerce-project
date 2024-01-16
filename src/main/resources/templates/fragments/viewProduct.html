@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>View Product</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bd-highlight p-2 mb-3 text-white bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Shoplyft E-Commerce</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="d-flex justify-content-end mb-2">
+            <div class="collapse navbar-collapse show" id="navbarNavAltMarkup">
+
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="/addProduct">Add New Product</a>
+                    <a class="nav-link" href="/">Signout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main> <!-- Product Details Section -->
+        <section class="container mt-4">
+            <h2 class="mb-4">Product Details</h2>
+            <form th:action="@{/}" method="get">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="https://via.placeholder.com/400" alt="Product" class="img-fluid">
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Product Name</h3>
+                        <p>Description of the product goes here. Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit.
+                        </p>
+                        <p>$20.00</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+
+</div>
+
+<script th:inline="javascript">
+            window.onload = function() {
+
+                var msg = "${message}";
+                console.log(msg);
+                if (msg == "Save Failure") {
+    				Command: toastr["error"]("Something went wrong with the save.")
+    			}
+
+    			toastr.options = {
+                      "closeButton": true,
+                      "debug": false,
+                      "newestOnTop": false,
+                      "progressBar": true,
+                      "positionClass": "toast-top-right",
+                      "preventDuplicates": false,
+                      "showDuration": "300",
+                      "hideDuration": "1000",
+                      "timeOut": "5000",
+                      "extendedTimeOut": "1000",
+                      "showEasing": "swing",
+                      "hideEasing": "linear",
+                      "showMethod": "fadeIn",
+                      "hideMethod": "fadeOut"
+                    }
+    	    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
